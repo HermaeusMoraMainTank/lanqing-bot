@@ -1,0 +1,10 @@
+# 从 QQ 开放平台获取：https://bot.q.qq.com/
+# 注册机器人后，在「开发设置」页获取 AppID 与 AppSecret
+appid: "你的AppID"
+secret: "你的AppSecret"
+
+# 启用的场景（按需开启，需在开放平台同步订阅对应事件）
+scenes:
+  guild: true   # QQ 频道（子频道 @ 机器人）
+  group: true   # QQ 群聊
+  c2c: true     # 单聊（用户私聊机器人）
