@@ -1,0 +1,5 @@
+name: phoebe
+version: 1.0.0
+description: 菲比搜索
+main: plugin.py
+class: PhoebePlugin

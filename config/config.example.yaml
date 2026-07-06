@@ -5,6 +5,14 @@ secret: "你的AppSecret"
 
 # 启用的场景（按需开启，需在开放平台同步订阅对应事件）
 scenes:
-  guild: true   # QQ 频道（子频道 @ 机器人）
-  group: true   # QQ 群聊
-  c2c: true     # 单聊（用户私聊机器人）
+  guild: false
+  group: true
+  c2c: false
+
+# NcatBot 资源路径（tarot 图片与 yml），默认同级目录 ../NcatBot/data
+# ncatbot_data: "C:/Users/.../NcatBot/data"
+
+# 可选：VIP openid 列表（jrrp 固定 101，tarot 提高 Blacksouls 概率）
+# jrrp_vip_openids: []
+# anime_waifu_dir: "C:/Users/.../wife"
+# admin_openids: []

@@ -1,0 +1,5 @@
+name: tarot
+version: "1.0.0"
+description: 塔罗占卜
+main: plugin.py
+class: TarotPlugin

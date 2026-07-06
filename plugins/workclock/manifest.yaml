@@ -1,0 +1,5 @@
+name: workclock
+version: 1.0.0
+description: 上下班打卡
+main: plugin.py
+class: WorkClockPlugin

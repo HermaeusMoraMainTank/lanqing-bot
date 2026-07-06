@@ -9,7 +9,7 @@ __pycache__/
 venv/
 .env
 
-# IDE
+plugins/**/data/temp/
 .idea/
 .vscode/
 *.swp

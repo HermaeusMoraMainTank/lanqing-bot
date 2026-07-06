@@ -1,0 +1,5 @@
+name: anime_waifu
+version: 1.0.0
+description: 今日二次元老婆
+main: plugin.py
+class: AnimeWaifuPlugin

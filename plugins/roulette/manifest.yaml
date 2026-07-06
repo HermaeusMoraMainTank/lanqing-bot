@@ -1,0 +1,5 @@
+name: roulette
+version: 1.0.0
+description: 轮盘赌
+main: plugin.py
+class: RoulettePlugin

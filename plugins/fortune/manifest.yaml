@@ -1,0 +1,5 @@
+name: fortune
+version: 1.0.0
+description: 今日运势
+main: plugin.py
+class: FortunePlugin

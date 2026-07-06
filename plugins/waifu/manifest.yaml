@@ -1,0 +1,5 @@
+name: waifu
+version: 1.0.0
+description: 今日老婆
+main: plugin.py
+class: WaifuPlugin

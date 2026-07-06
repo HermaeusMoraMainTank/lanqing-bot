@@ -1,0 +1,207 @@
+2026-07-06 11:18:44,951	[INFO]	(client.py:162)_bot_login	[botpy] 登录机器人账号中...
+2026-07-06 11:18:45,691	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 3926
+2026-07-06 11:18:46,183	[INFO]	(client.py:181)_bot_init	[botpy] 程序启动...
+2026-07-06 11:18:46,184	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 11:18:46,184	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 11:18:46,184	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 11:18:46,331	[INFO]	(gateway.py:142)ws_identify	[botpy] 鉴权中...
+2026-07-06 11:18:46,554	[INFO]	(gateway.py:85)on_message	[botpy] 机器人「蓝晴-测试中」启动成功！
+2026-07-06 11:18:46,834	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 11:18:46,834	[INFO]	(client.py:17)on_ready	机器人「蓝晴-测试中」已上线
+2026-07-06 11:18:59,633	[INFO]	(group.py:12)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 帮助
+2026-07-06 11:24:34,527	[INFO]	(group.py:12)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: ping
+2026-07-06 11:24:42,086	[INFO]	(group.py:12)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 你好
+2026-07-06 11:25:46,074	[INFO]	(group.py:12)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 
+2026-07-06 11:25:51,943	[WARNING]	(http.py:192)request	请求超时，请求连接: https://api.sgroup.qq.com/v2/groups/A51224B4D77E22702F70BE7E8116BA7D/messages
+2026-07-06 11:26:19,169	[INFO]	(group.py:12)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 测试
+2026-07-06 11:48:46,292	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-06 11:48:46,292	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-06 11:48:51,301	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 11:48:51,301	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 11:48:51,302	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 11:48:51,354	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-06 11:48:51,416	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-06 11:48:51,416	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 12:18:51,266	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-06 12:18:51,266	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-06 12:18:56,277	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 12:18:56,277	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 12:18:56,278	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 12:18:56,351	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-06 12:18:56,415	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-06 12:18:56,416	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 12:48:56,263	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-06 12:48:56,264	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-06 12:49:01,280	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 12:49:01,281	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 12:49:01,281	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 12:49:01,343	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-06 12:49:01,536	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 7200
+2026-07-06 12:49:01,596	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-06 12:49:01,596	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 13:19:01,255	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-06 13:19:01,256	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-06 13:19:06,255	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 13:19:06,255	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 13:19:06,256	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 13:19:06,326	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-06 13:19:06,392	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-06 13:19:06,393	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 13:49:06,238	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-06 13:49:06,240	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-06 13:49:11,237	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 13:49:11,237	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 13:49:11,237	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 13:49:11,300	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-06 13:49:11,365	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-06 13:49:11,366	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 14:13:21,182	[INFO]	(client.py:162)_bot_login	[botpy] 登录机器人账号中...
+2026-07-06 14:13:21,259	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 2140
+2026-07-06 14:13:21,553	[INFO]	(client.py:181)_bot_init	[botpy] 程序启动...
+2026-07-06 14:13:21,553	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 14:13:21,553	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 14:13:21,553	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 14:13:21,594	[INFO]	(gateway.py:142)ws_identify	[botpy] 鉴权中...
+2026-07-06 14:13:21,675	[INFO]	(gateway.py:85)on_message	[botpy] 机器人「蓝晴-测试中」启动成功！
+2026-07-06 14:13:21,675	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 14:13:21,677	[INFO]	(registry.py:40)load_all	已加载插件 basic v1.0.0
+2026-07-06 14:13:21,678	[INFO]	(registry.py:40)load_all	已加载插件 jrrp v1.0.0
+2026-07-06 14:13:21,680	[INFO]	(registry.py:40)load_all	已加载插件 tarot v1.0.0
+2026-07-06 14:13:21,680	[INFO]	(client.py:18)on_ready	机器人「蓝晴-测试中」已上线，已加载插件: basic, jrrp, tarot
+2026-07-06 14:13:31,739	[INFO]	(message.py:31)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: /jrrp
+2026-07-06 14:13:48,376	[INFO]	(message.py:31)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: jrrp
+2026-07-06 14:13:48,376	[INFO]	(registry.py:69)dispatch	[插件:jrrp] 处理 jrrp
+2026-07-06 14:14:09,582	[INFO]	(message.py:31)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 占卜
+2026-07-06 14:14:09,582	[INFO]	(registry.py:69)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 14:51:32,302	[INFO]	(client.py:162)_bot_login	[botpy] 登录机器人账号中...
+2026-07-06 14:51:32,422	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 7200
+2026-07-06 14:51:32,693	[INFO]	(client.py:181)_bot_init	[botpy] 程序启动...
+2026-07-06 14:51:32,693	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 14:51:32,694	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 14:51:32,694	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 14:51:32,746	[INFO]	(gateway.py:142)ws_identify	[botpy] 鉴权中...
+2026-07-06 14:51:32,906	[INFO]	(gateway.py:85)on_message	[botpy] 机器人「蓝晴-测试中」启动成功！
+2026-07-06 14:51:32,906	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 14:51:32,908	[INFO]	(registry.py:41)load_all	已加载插件 basic v1.0.0
+2026-07-06 14:51:32,910	[INFO]	(registry.py:41)load_all	已加载插件 jrrp v1.0.0
+2026-07-06 14:51:32,931	[INFO]	(registry.py:41)load_all	已加载插件 tarot v1.0.0
+2026-07-06 14:51:32,931	[INFO]	(client.py:18)on_ready	机器人「蓝晴-测试中」已上线，已加载插件: basic, jrrp, tarot
+2026-07-06 14:57:56,662	[INFO]	(message.py:44)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 占卜
+2026-07-06 14:57:56,662	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 14:57:57,357	[ERROR]	(http.py:76)_handle_response	[botpy] 接口请求异常，请求连接: https://api.sgroup.qq.com/v2/groups/A51224B4D77E22702F70BE7E8116BA7D/messages, 错误代码: 400, 返回内容: {'message': '请求数据异常', 'code': 40011000, 'err_code': 40011000, 'trace_id': '1e747a410bf809312e0a06fa105bc058'}, trace_id:1e747a410bf809312e0a06fa105bc058
+2026-07-06 14:57:57,358	[ERROR]	(message.py:29)_reply	发送图片失败，降级为纯文字: 请求数据异常
+2026-07-06 15:03:09,456	[INFO]	(client.py:162)_bot_login	[botpy] 登录机器人账号中...
+2026-07-06 15:03:09,604	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 6503
+2026-07-06 15:03:10,099	[INFO]	(client.py:181)_bot_init	[botpy] 程序启动...
+2026-07-06 15:03:10,099	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 15:03:10,099	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 15:03:10,099	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 15:03:10,162	[INFO]	(gateway.py:142)ws_identify	[botpy] 鉴权中...
+2026-07-06 15:03:10,245	[INFO]	(gateway.py:85)on_message	[botpy] 机器人「蓝晴-测试中」启动成功！
+2026-07-06 15:03:10,245	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 15:03:10,247	[INFO]	(registry.py:41)load_all	已加载插件 basic v1.0.0
+2026-07-06 15:03:10,248	[INFO]	(registry.py:41)load_all	已加载插件 jrrp v1.0.0
+2026-07-06 15:03:10,269	[INFO]	(registry.py:41)load_all	已加载插件 tarot v1.0.0
+2026-07-06 15:03:10,269	[INFO]	(client.py:18)on_ready	机器人「蓝晴-测试中」已上线，已加载插件: basic, jrrp, tarot
+2026-07-06 15:03:16,793	[INFO]	(message.py:44)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 占卜
+2026-07-06 15:03:16,794	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:03:18,146	[INFO]	(group.py:27)upload_group_image	[media] 群图片上传成功 file_uuid=EhQWA66k8sIaCWgBdB92uzGQLOMdrRiwSiD_Ciji_L_wvb2VAzIEcHJvZFCAvaMBWhDPzDK28Cb6VyZxYDGQ5tXuegIPFoIBAmd6
+2026-07-06 15:12:34,912	[INFO]	(client.py:162)_bot_login	[botpy] 登录机器人账号中...
+2026-07-06 15:12:34,994	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 5937
+2026-07-06 15:12:35,300	[INFO]	(client.py:181)_bot_init	[botpy] 程序启动...
+2026-07-06 15:12:35,300	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 15:12:35,300	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 15:12:35,300	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 15:12:35,350	[INFO]	(gateway.py:142)ws_identify	[botpy] 鉴权中...
+2026-07-06 15:12:35,449	[INFO]	(gateway.py:85)on_message	[botpy] 机器人「蓝晴-测试中」启动成功！
+2026-07-06 15:12:35,449	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 15:12:35,451	[INFO]	(registry.py:41)load_all	已加载插件 basic v1.0.0
+2026-07-06 15:12:35,452	[INFO]	(registry.py:41)load_all	已加载插件 jrrp v1.0.0
+2026-07-06 15:12:35,465	[INFO]	(registry.py:41)load_all	已加载插件 tarot v1.0.0
+2026-07-06 15:12:35,465	[INFO]	(client.py:18)on_ready	机器人「蓝晴-测试中」已上线，已加载插件: basic, jrrp, tarot
+2026-07-06 15:22:41,054	[INFO]	(client.py:162)_bot_login	[botpy] 登录机器人账号中...
+2026-07-06 15:22:41,149	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 5331
+2026-07-06 15:22:41,415	[INFO]	(client.py:181)_bot_init	[botpy] 程序启动...
+2026-07-06 15:22:41,415	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 15:22:41,416	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 15:22:41,416	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 15:22:41,462	[INFO]	(gateway.py:142)ws_identify	[botpy] 鉴权中...
+2026-07-06 15:22:41,569	[INFO]	(gateway.py:85)on_message	[botpy] 机器人「蓝晴-测试中」启动成功！
+2026-07-06 15:22:41,569	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-06 15:22:41,573	[INFO]	(registry.py:41)load_all	已加载插件 basic v1.0.0
+2026-07-06 15:22:41,574	[INFO]	(registry.py:41)load_all	已加载插件 jrrp v1.0.0
+2026-07-06 15:22:41,588	[INFO]	(registry.py:41)load_all	已加载插件 tarot v1.0.0
+2026-07-06 15:22:41,589	[INFO]	(client.py:18)on_ready	机器人「蓝晴-测试中」已上线，已加载插件: basic, jrrp, tarot
+2026-07-06 15:22:50,122	[INFO]	(message.py:44)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 占卜
+2026-07-06 15:22:50,123	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:23:00,207	[INFO]	(message.py:44)handle_group_at_message	[群聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 占卜
+2026-07-06 15:23:00,207	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:37:18,000	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:37:18,000	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:37:27,536	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:37:27,536	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:37:37,591	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:37:37,592	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:37:47,695	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:37:47,695	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:37:57,296	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:37:57,296	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:38:07,950	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:38:07,952	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:38:17,754	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:38:17,755	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:38:27,326	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:38:27,327	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:38:37,898	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:38:37,899	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:38:47,498	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:38:47,498	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:38:57,540	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:38:57,540	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:39:08,105	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:39:08,105	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:39:17,658	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:39:17,658	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:39:27,735	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:39:27,735	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:39:37,298	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 今日人品
+2026-07-06 15:39:37,298	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 今日人品
+2026-07-06 15:39:38,816	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:39:38,818	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:39:47,878	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:39:47,878	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:39:57,474	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:39:57,474	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:40:09,045	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:40:09,046	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:40:17,596	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:40:17,597	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:40:17,926	[ERROR]	(message.py:29)_reply	发送图片失败，降级为纯文字: Cannot connect to host api.sgroup.qq.com:443 ssl:default [getaddrinfo failed]
+2026-07-06 15:40:27,667	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:40:27,667	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:40:37,733	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:40:37,734	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:40:47,810	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:40:47,811	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:40:57,390	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:40:57,391	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:41:07,449	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:41:07,450	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:41:17,533	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:41:17,534	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:41:27,604	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:41:27,605	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:41:37,672	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:41:37,674	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:41:47,736	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:41:47,739	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:41:57,288	[INFO]	(message.py:44)handle_group_at_message	[群聊] A111A156DB40D2DCE2ABACF757F23279: 占卜
+2026-07-06 15:41:57,288	[INFO]	(registry.py:72)dispatch	[插件:tarot] 处理 占卜
+2026-07-06 15:52:41,376	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-06 15:52:41,377	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-06 15:52:46,385	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-06 15:52:46,386	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-06 15:52:46,386	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-06 15:52:46,456	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-06 15:52:46,527	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-06 15:52:46,527	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...

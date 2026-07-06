@@ -1,0 +1,5 @@
+name: rollpig
+version: 1.0.0
+description: 今日小猪
+main: plugin.py
+class: RollPigPlugin

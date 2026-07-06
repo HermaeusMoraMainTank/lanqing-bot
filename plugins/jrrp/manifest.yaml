@@ -1,0 +1,5 @@
+name: jrrp
+version: "1.0.0"
+description: 今日人品
+main: plugin.py
+class: JrrpPlugin

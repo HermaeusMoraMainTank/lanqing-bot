@@ -1,0 +1,5 @@
+name: basic
+version: "1.0.0"
+description: 基础指令
+main: plugin.py
+class: BasicPlugin

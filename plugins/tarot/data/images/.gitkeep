@@ -1,0 +1,3 @@
+# 可选：将 NcatBot 的塔罗牌图片放入此目录，文件名与 tarot.yml 的 imageName 对应
+# 例如 data/image/Tarot/Tarot3/xxx.png → 复制到 images/xxx.png
+# 未放置图片时，机器人会自动生成牌面图
