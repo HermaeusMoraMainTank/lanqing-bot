@@ -10,6 +10,7 @@ from bot.handlers.context import (
 from bot.media.group import reply_with_image
 from bot.plugin.registry import get_registry
 from bot.plugin.result import PluginResult
+from bot.utils.async_util import run_sync
 
 _log = logging.get_logger()
 _FALLBACK = "发送「帮助」查看可用指令。"
@@ -47,18 +48,18 @@ async def _reply(message, reply, robot_name: str) -> None:
 
 
 async def handle_at_message(client, message: Message) -> None:
-    ctx = from_guild_message(client, message)
+    ctx = await run_sync(from_guild_message, client, message)
     _log.info("[频道] %s: %s", ctx.display_name, ctx.text)
-    await _reply(message, get_registry().dispatch(ctx), client.robot.name)
+    await _reply(message, await get_registry().dispatch(ctx), client.robot.name)
 
 
 async def handle_group_at_message(client, message: GroupMessage) -> None:
-    ctx = from_group_message(client, message)
+    ctx = await run_sync(from_group_message, client, message)
     _log.info("[群聊] %s: %s", ctx.user_key, ctx.text)
-    await _reply(message, get_registry().dispatch(ctx), client.robot.name)
+    await _reply(message, await get_registry().dispatch(ctx), client.robot.name)
 
 
 async def handle_c2c_message(client, message: C2CMessage) -> None:
-    ctx = from_c2c_message(client, message)
+    ctx = await run_sync(from_c2c_message, client, message)
     _log.info("[单聊] %s: %s", ctx.user_key, ctx.text)
-    await _reply(message, get_registry().dispatch(ctx), client.robot.name)
+    await _reply(message, await get_registry().dispatch(ctx), client.robot.name)

@@ -66,11 +66,11 @@ class PluginRegistry:
         plugin.description = manifest.get("description", plugin.description)
         return plugin
 
-    def dispatch(self, ctx: MessageContext) -> PluginReply:
+    async def dispatch(self, ctx: MessageContext) -> PluginReply:
         for plugin in self._plugins:
             if plugin.match(ctx.text):
                 _log.info("[插件:%s] 处理 %s", plugin.name, ctx.text)
-                return plugin.on_message(ctx)
+                return await plugin.on_message(ctx)
         return None
 
 

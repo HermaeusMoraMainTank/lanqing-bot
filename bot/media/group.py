@@ -7,6 +7,8 @@ from botpy import logging
 from botpy.http import Route
 from botpy.message import C2CMessage, GroupMessage
 
+from bot.utils.async_util import run_sync
+
 _log = logging.get_logger()
 
 
@@ -15,7 +17,8 @@ def _clean_payload(**fields: Any) -> dict:
 
 
 async def upload_group_image(api, group_openid: str, image_path: Path) -> dict:
-    file_data = base64.b64encode(image_path.read_bytes()).decode("utf-8")
+    raw = await run_sync(image_path.read_bytes)
+    file_data = base64.b64encode(raw).decode("utf-8")
     route = Route("POST", "/v2/groups/{group_openid}/files", group_openid=group_openid)
     result = await api._http.request(route, json={"file_type": 1, "file_data": file_data})
     if not isinstance(result, dict) or not result.get("file_info"):
@@ -24,7 +27,8 @@ async def upload_group_image(api, group_openid: str, image_path: Path) -> dict:
 
 
 async def upload_c2c_image(api, openid: str, image_path: Path) -> dict:
-    file_data = base64.b64encode(image_path.read_bytes()).decode("utf-8")
+    raw = await run_sync(image_path.read_bytes)
+    file_data = base64.b64encode(raw).decode("utf-8")
     route = Route("POST", "/v2/users/{openid}/files", openid=openid)
     result = await api._http.request(route, json={"file_type": 1, "file_data": file_data})
     if not isinstance(result, dict) or not result.get("file_info"):

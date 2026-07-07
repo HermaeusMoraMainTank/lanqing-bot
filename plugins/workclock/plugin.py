@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from bot.plugin.base import BasePlugin, MessageContext
 from bot.plugin.result import PluginReply, PluginResult
-
+from bot.utils.async_util import run_sync
 from bot.utils.group_track import get_group_tracker
+
 from .service import _CLOCK_IN, _CLOCK_OUT, get_service
 
 
@@ -21,11 +22,15 @@ class WorkClockPlugin(BasePlugin):
                 return True
         return False
 
-    def on_message(self, ctx: MessageContext) -> PluginReply:
+    async def on_message(self, ctx: MessageContext) -> PluginReply:
         tracker = get_group_tracker()
         nickname = tracker.display_name(ctx.group_openid, ctx.user_key)
-        text, img = get_service().handle(
-            ctx.text.strip(), ctx.user_key, ctx.group_openid, nickname=nickname,
+        text, img = await run_sync(
+            get_service().handle,
+            ctx.text.strip(),
+            ctx.user_key,
+            ctx.group_openid,
+            nickname=nickname,
         )
         if img:
             return PluginResult(text=text, image_path=img)

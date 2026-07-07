@@ -12,5 +12,5 @@ class TemplatePlugin(BasePlugin):
     description = "插件模板"
     triggers = ["示例指令"]
 
-    def on_message(self, ctx: MessageContext) -> Optional[str]:
+    async def on_message(self, ctx: MessageContext) -> PluginReply:
         return f"收到：{ctx.text}"

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from bot.plugin.base import BasePlugin, MessageContext
 from bot.plugin.result import PluginReply
+from bot.utils.async_util import run_sync
 from bot.utils.group_track import get_group_tracker
 
 
@@ -42,13 +43,13 @@ class BasicPlugin(BasePlugin):
             return True
         return super().match(text)
 
-    def on_message(self, ctx: MessageContext) -> PluginReply:
+    async def on_message(self, ctx: MessageContext) -> PluginReply:
         cmd = ctx.text.strip()
         if cmd.startswith("设置昵称"):
             nick = cmd[len("设置昵称") :].strip()
             if not nick:
                 return "用法：@机器人 设置昵称 你的昵称\n（官方 Bot 不提供群名片，需自行设置）"
-            get_group_tracker().set_nickname(ctx.group_openid, ctx.user_key, nick)
+            await run_sync(get_group_tracker().set_nickname, ctx.group_openid, ctx.user_key, nick)
             return f"已设置本群昵称为：{nick}"
         key = ctx.text.strip().lower() if ctx.text.strip().isascii() else ctx.text.strip()
         for trigger, reply in self._COMMANDS.items():

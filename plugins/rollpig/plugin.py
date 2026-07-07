@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from bot.plugin.base import BasePlugin, MessageContext
 from bot.plugin.result import PluginReply, PluginResult
+from bot.utils.async_util import run_sync
 
 from .service import LIST_COMMANDS, COMMANDS, get_service
 
@@ -17,7 +18,7 @@ class RollPigPlugin(BasePlugin):
             return True
         return cmd in COMMANDS or cmd in LIST_COMMANDS
 
-    def on_message(self, ctx: MessageContext) -> PluginReply:
+    async def on_message(self, ctx: MessageContext) -> PluginReply:
         cmd = ctx.text.strip()
         if cmd.lower() == "rollpig":
             cmd = "rollpig"
@@ -25,7 +26,7 @@ class RollPigPlugin(BasePlugin):
         svc = get_service()
 
         if cmd in LIST_COMMANDS:
-            img = svc.render_pig_list_image()
+            img = await run_sync(svc.render_pig_list_image)
             if img:
                 return PluginResult(text="小猪图鉴", image_path=img)
             return "图鉴渲染失败，请检查资源文件。"
@@ -38,7 +39,7 @@ class RollPigPlugin(BasePlugin):
             return "一次只能抽取一个小猪哦！"
         target = others[0] if others else ctx.user_key
 
-        text, img = svc.draw_pig(ctx.user_key, target)
+        text, img = await run_sync(svc.draw_pig, ctx.user_key, target)
         if img:
             return PluginResult(text=text, image_path=img)
         return text

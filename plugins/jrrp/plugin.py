@@ -43,8 +43,8 @@ class JrrpPlugin(BasePlugin):
         cmd = text.strip()
         return cmd.lower() == "jrrp" or cmd == "今日人品"
 
-    def on_message(self, ctx: MessageContext) -> PluginReply:
-        config = load_config()
+    async def on_message(self, ctx: MessageContext) -> PluginReply:
+        config = await run_sync(load_config)
         vip_openids = set(config.get("jrrp_vip_openids", []))
         if ctx.user_key in vip_openids:
             return f"{ctx.display_name} 的今日人品是：101。"

@@ -1062,3 +1062,18 @@
 2026-07-07 14:37:35,750	[INFO]	(robot.py:65)update_access_token	[botpy] access_token expires_in 7195
 2026-07-07 14:37:35,942	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
 2026-07-07 14:37:35,943	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...
+2026-07-07 15:04:42,198	[INFO]	(message.py:63)handle_c2c_message	[单聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 测试
+2026-07-07 15:04:46,729	[INFO]	(message.py:63)handle_c2c_message	[单聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 帮助
+2026-07-07 15:04:46,729	[INFO]	(registry.py:72)dispatch	[插件:basic] 处理 帮助
+2026-07-07 15:04:49,756	[INFO]	(message.py:63)handle_c2c_message	[单聊] 57F2923E9BA2C2F30706B6A875E2DC0C: jrrp
+2026-07-07 15:04:49,757	[INFO]	(registry.py:72)dispatch	[插件:jrrp] 处理 jrrp
+2026-07-07 15:04:56,797	[INFO]	(message.py:63)handle_c2c_message	[单聊] 57F2923E9BA2C2F30706B6A875E2DC0C: 今日小猪
+2026-07-07 15:04:56,798	[INFO]	(registry.py:72)dispatch	[插件:rollpig] 处理 今日小猪
+2026-07-07 15:07:35,577	[INFO]	(gateway.py:56)on_closed	[botpy] 关闭, 返回码: 4009, 返回信息: Session timed out
+2026-07-07 15:07:35,577	[INFO]	(gateway.py:134)ws_connect	[botpy] ws关闭, 停止接收消息!
+2026-07-07 15:07:40,571	[INFO]	(connection.py:60)multi_run	[botpy] 最大并发连接数: 1, 启动会话数: 1
+2026-07-07 15:07:40,571	[INFO]	(client.py:242)bot_connect	[botpy] 会话启动中...
+2026-07-07 15:07:40,571	[INFO]	(gateway.py:115)ws_connect	[botpy] 启动中...
+2026-07-07 15:07:40,618	[INFO]	(gateway.py:175)ws_resume	[botpy] 重连启动...
+2026-07-07 15:07:40,668	[INFO]	(gateway.py:90)on_message	[botpy] 机器人重连成功! 
+2026-07-07 15:07:40,669	[INFO]	(gateway.py:223)_send_heart	[botpy] 心跳维持启动...

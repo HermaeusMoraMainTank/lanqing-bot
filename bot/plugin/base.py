@@ -43,5 +43,5 @@ class BasePlugin(ABC):
         return False
 
     @abstractmethod
-    def on_message(self, ctx: MessageContext) -> PluginReply:
+    async def on_message(self, ctx: MessageContext) -> PluginReply:
         """匹配成功时返回 str / PluginResult，未处理返回 None。"""
