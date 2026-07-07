@@ -16,3 +16,6 @@ scenes:
 # jrrp_vip_openids: []
 # anime_waifu_dir: "C:/Users/.../wife"
 # admin_openids: []
+# 群友昵称（member_openid → 显示名，官方 Bot 无昵称 API 时用）
+# nickname_overrides:
+#   "9660CACF968538D1AB9F5C08DAEDC05F": "小明"

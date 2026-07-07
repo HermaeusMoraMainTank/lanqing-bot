@@ -28,5 +28,5 @@ class PhoebePlugin(BasePlugin):
         except Exception as exc:
             return f"[Phoebe] 菲比数据加载失败，请稍后再试: {exc}"
         if images:
-            return PluginResult(text=text, image_path=images[0], image_paths=images[1:])
+            return PluginResult(text=text, image_path=images[0])
         return text

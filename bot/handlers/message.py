@@ -28,14 +28,19 @@ async def _reply(message, reply, robot_name: str) -> None:
             if path.exists() and path not in images:
                 images.append(path)
         if images:
+            msg_seq = 1
             try:
-                await reply_with_image(message, reply.text, images[0])
-                for extra in images[1:]:
-                    await reply_with_image(message, "", extra)
+                await reply_with_image(message, reply.text, images[0], msg_seq=msg_seq)
+                msg_seq += 1
+                for idx, extra in enumerate(images[1:], start=2):
+                    await reply_with_image(message, f"图 {idx}", extra, msg_seq=msg_seq)
+                    msg_seq += 1
                 return
             except Exception as exc:
                 _log.error("发送图片失败，降级为纯文字: %s", exc)
-        await message.reply(content=reply.text)
+                if msg_seq > 1:
+                    return
+        await message.reply(content=reply.text, msg_seq=1)
         return
 
     await message.reply(content=reply or f"你好，我是 {robot_name}！{_FALLBACK}")

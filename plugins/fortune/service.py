@@ -101,8 +101,13 @@ class FortuneService:
     def _draw_vertical_text(draw: ImageDraw.Draw, text_lines: list[str], font_path: str) -> None:
         font = ImageFont.truetype(font_path, 25)
         for i, line in enumerate(text_lines):
-            font_height = len(line) * 29
-            draw_x = 140 + (len(text_lines) - 2) * 12.5 - i * 29
+            font_height = len(line) * (25 + 4)
+            draw_x = (
+                140
+                + (len(text_lines) - 2) * 25 / 2
+                + (len(text_lines) - 1) * 4
+                - i * (25 + 4)
+            )
             draw_y = 300 - font_height / 2
             for j, char in enumerate(line):
                 draw.text((draw_x, draw_y + j * 25), char, font=font, fill="#323232")

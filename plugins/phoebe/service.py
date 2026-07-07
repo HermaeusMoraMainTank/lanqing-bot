@@ -12,8 +12,17 @@ from urllib.parse import quote
 
 import requests
 
-MEMES_JSON_URL = "https://phoebehub.top/data/memes.json"
-BASE_URL = "https://phoebehub.top/"
+# phoebehub.top 已切静态部署，/data/memes.json 返回 404；数据在 GitHub Pages
+_DATA_SOURCES = (
+    (
+        "https://kato-shoko705.github.io/Phoebe-Hub/data/memes.json",
+        "https://kato-shoko705.github.io/Phoebe-Hub/",
+    ),
+    (
+        "https://raw.githubusercontent.com/Kato-Shoko705/Phoebe-Hub/main/data/memes.json",
+        "https://kato-shoko705.github.io/Phoebe-Hub/",
+    ),
+)
 MAX_RESULTS = 5
 MIN_SCORE = 30.0
 CACHE_TTL_SEC = 3600
@@ -21,7 +30,8 @@ CACHE_TTL_SEC = 3600
 _HELP = (
     "菲比搜索用法：菲比搜索 <关键词>\n"
     "示例：菲比搜索 2000元烧鸡哈哈\n"
-    "数据来源：Phoebe Hub (https://phoebehub.top/)"
+    "说明：最多列出 5 条结果，配图仅展示相似度最高的一条\n"
+    "数据来源：Phoebe Hub (https://kato-shoko705.github.io/Phoebe-Hub/)"
 )
 
 
@@ -41,6 +51,7 @@ class PhoebeService:
     def __init__(self) -> None:
         self._memes: list[MemeEntry] = []
         self._cache_loaded_at = 0.0
+        self._base_url = _DATA_SOURCES[0][1]
         self.session = requests.Session()
 
     def ensure_memes(self) -> None:
@@ -54,18 +65,30 @@ class PhoebeService:
                 "Chrome/114.0.0.0 Safari/537.36"
             ),
         }
-        response = self.session.get(MEMES_JSON_URL, headers=headers, timeout=30)
-        response.raise_for_status()
-        response.encoding = "utf-8"
-        payload = response.json()
-        entries: list[MemeEntry] = []
-        for item in payload.get("memes", []):
-            title = str(item.get("title", "")).strip()
-            url = str(item.get("url", "")).strip()
-            if title and url:
-                entries.append(MemeEntry(title=title, url=url))
-        self._memes = entries
-        self._cache_loaded_at = now
+        last_error: Optional[Exception] = None
+        for memes_url, base_url in _DATA_SOURCES:
+            try:
+                response = self.session.get(memes_url, headers=headers, timeout=30)
+                response.raise_for_status()
+                response.encoding = "utf-8"
+                payload = response.json()
+            except (requests.RequestException, ValueError) as exc:
+                last_error = exc
+                continue
+            entries: list[MemeEntry] = []
+            for item in payload.get("memes", []):
+                title = str(item.get("title", "")).strip()
+                url = str(item.get("url", "")).strip()
+                if title and url:
+                    entries.append(MemeEntry(title=title, url=url))
+            if not entries:
+                last_error = ValueError(f"empty memes list from {memes_url}")
+                continue
+            self._memes = entries
+            self._base_url = base_url
+            self._cache_loaded_at = now
+            return
+        raise RuntimeError(f"无法加载菲比数据: {last_error}")
 
     @staticmethod
     def _similarity(query: str, title: str) -> float:
@@ -89,10 +112,9 @@ class PhoebeService:
         hits.sort(key=lambda h: h.score, reverse=True)
         return hits
 
-    @staticmethod
-    def _image_url(path: str) -> str:
+    def _image_url(self, path: str) -> str:
         encoded = "/".join(quote(part, safe="") for part in path.split("/"))
-        return f"{BASE_URL}{encoded}"
+        return f"{self._base_url}{encoded}"
 
     def _download_image(self, url: str) -> Optional[Path]:
         try:
@@ -115,11 +137,15 @@ class PhoebeService:
         if not hits:
             return f"[Phoebe] 未找到与「{query}」匹配的菲比", []
         shown = hits[:MAX_RESULTS]
-        lines = [f"[Phoebe] 共找到 {len(hits)} 条，显示前 {len(shown)} 条："]
-        images: list[Path] = []
+        lines = [
+            f"[Phoebe] 共找到 {len(hits)} 条，列出前 {len(shown)} 条（配图仅展示第 1 条）："
+        ]
         for idx, hit in enumerate(shown, start=1):
-            lines.append(f"{idx}. {hit.meme.title} 相似度 {hit.score:.0f}%")
-            url = self._image_url(hit.meme.url)
+            preview = " ← 预览" if idx == 1 else ""
+            lines.append(f"{idx}. {hit.meme.title} 相似度 {hit.score:.0f}%{preview}")
+        images: list[Path] = []
+        if shown:
+            url = self._image_url(shown[0].meme.url)
             img = self._download_image(url)
             if img:
                 images.append(img)

@@ -32,12 +32,12 @@ async def upload_c2c_image(api, openid: str, image_path: Path) -> dict:
     return result
 
 
-async def reply_with_image(message, text: str, image_path: Path) -> None:
+async def reply_with_image(message, text: str, image_path: Path, *, msg_seq: int = 1) -> None:
     """单条消息同时带文字与图片（群聊 content 必填）。"""
     api = message._api
     path = Path(image_path)
     if not path.exists():
-        await message.reply(content=text)
+        await message.reply(content=text, msg_seq=msg_seq)
         return
 
     if isinstance(message, GroupMessage):
@@ -52,7 +52,7 @@ async def reply_with_image(message, text: str, image_path: Path) -> None:
                 msg_type=7,
                 media={"file_info": media["file_info"]},
                 msg_id=message.id,
-                msg_seq=1,
+                msg_seq=msg_seq,
             ),
         )
         return
@@ -68,9 +68,9 @@ async def reply_with_image(message, text: str, image_path: Path) -> None:
                 msg_type=7,
                 media={"file_info": media["file_info"]},
                 msg_id=message.id,
-                msg_seq=1,
+                msg_seq=msg_seq,
             ),
         )
         return
 
-    await message.reply(content=text, file_image=str(path))
+    await message.reply(content=text, file_image=str(path), msg_seq=msg_seq)

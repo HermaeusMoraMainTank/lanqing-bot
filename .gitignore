@@ -10,6 +10,8 @@ venv/
 .env
 
 plugins/**/data/temp/
+data/avatar_cache/
+data/nickname_map.json
 .idea/
 .vscode/
 *.swp

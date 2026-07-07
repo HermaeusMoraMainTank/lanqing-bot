@@ -116,6 +116,37 @@ class RollPigService:
         bbox = draw.textbbox((0, 0), text, font=font)
         return bbox[2] - bbox[0], bbox[3] - bbox[1]
 
+    def _truncate_text(self, draw, text: str, font, max_width: int) -> str:
+        if not text:
+            return text
+        if self._text_size(text, font)[0] <= max_width:
+            return text
+        ellipsis = "…"
+        for end in range(len(text) - 1, 0, -1):
+            probe = text[:end] + ellipsis
+            if self._text_size(probe, font)[0] <= max_width:
+                return probe
+        return ellipsis
+
+    def _analysis_font(self):
+        try:
+            return self.font_regular.font_variant(size=self.ANALYSIS_FONT_SIZE)
+        except Exception:
+            return self._load_font(
+                [
+                    self.font_dir / "可爱字体.ttf",
+                    self.font_dir / "SourceHanSansCN-Regular.otf",
+                    Path(r"C:/Windows/Fonts/msyh.ttc"),
+                ],
+                self.ANALYSIS_FONT_SIZE,
+            )
+
+    def _desc_font(self):
+        try:
+            return self.font_regular.font_variant(size=self.DESC_FONT_SIZE)
+        except Exception:
+            return self.font_regular
+
     @staticmethod
     def _draw_bold_text(draw, pos, text, font, fill):
         x, y = pos
@@ -172,9 +203,9 @@ class RollPigService:
 
         name_font = self.font_bold
         name_w, name_h = self._text_size(pig_name, name_font)
-        desc_font = self.font_regular
+        desc_font = self._desc_font()
         desc_w, desc_h = self._text_size(pig_desc, desc_font)
-        analysis_font = self.font_regular
+        analysis_font = self._analysis_font()
         line_height = int(self.ANALYSIS_FONT_SIZE * self.ANALYSIS_LINE_HEIGHT_FACTOR)
         max_w = int(self.CANVAS_WIDTH * self.ANALYSIS_WIDTH_RATIO)
 
@@ -208,6 +239,11 @@ class RollPigService:
                 (avatar_x, avatar_y),
                 mask=avatar if avatar.mode == "RGBA" else None,
             )
+        else:
+            err_font = self._load_font([Path(r"C:/Windows/Fonts/msyh.ttc")], 24)
+            err_text = "图片加载失败"
+            ew, _ = self._text_size(err_text, err_font)
+            draw.text(((self.CANVAS_WIDTH - ew) // 2, avatar_y + 120), err_text, fill=(255, 0, 0), font=err_font)
 
         name_y = avatar_y + self.AVATAR_SIZE + self.SPACING_AVATAR_NAME
         self._draw_bold_text(
@@ -258,18 +294,38 @@ class RollPigService:
         title = f"小猪图鉴 · 共 {len(pigs)} 只"
         tw, _ = self._text_size(title, self.font_list_title)
         draw.text(((width - tw) // 2, padding), title, fill=(255, 120, 80), font=self.font_list_title)
+        draw.line(
+            [(padding, padding + self.LIST_HEADER_HEIGHT - 12), (width - padding, padding + self.LIST_HEADER_HEIGHT - 12)],
+            fill=(240, 220, 210), width=2,
+        )
 
         start_y = padding + self.LIST_HEADER_HEIGHT
         for idx, pig in enumerate(pigs):
             col, row = idx % cols, idx // cols
             x = padding + col * (cell_w + gap)
             y = start_y + row * row_h
+            draw.rounded_rectangle(
+                (x, y, x + cell_w, y + img_size + name_h + 4),
+                radius=8, fill=(255, 255, 255), outline=(235, 225, 220), width=1,
+            )
+            thumb_x = x + (cell_w - img_size) // 2
+            thumb_y = y + 3
             thumb = self._load_thumbnail(pig.get("id", ""), img_size)
             if thumb:
-                canvas.paste(thumb, (x + (cell_w - img_size) // 2, y + 3), thumb)
+                canvas.paste(thumb, (thumb_x, thumb_y), thumb)
+            else:
+                draw.rectangle(
+                    (thumb_x, thumb_y, thumb_x + img_size, thumb_y + img_size),
+                    fill=(245, 240, 238), outline=(220, 210, 205),
+                )
             name = pig.get("name", "未知")
-            nw, _ = self._text_size(name, self.font_list_name)
-            draw.text((x + (cell_w - nw) // 2, y + img_size + 4), name, fill=(80, 70, 65), font=self.font_list_name)
+            name_font = self.font_list_name
+            max_name_w = cell_w - 6
+            name_w, _ = self._text_size(name, name_font)
+            if name_w > max_name_w:
+                name = self._truncate_text(draw, name, name_font, max_name_w)
+                name_w, _ = self._text_size(name, name_font)
+            draw.text((x + (cell_w - name_w) // 2, y + img_size + 4), name, fill=(80, 70, 65), font=name_font)
 
         fd, name = tempfile.mkstemp(suffix=".png", prefix="rollpig_list_")
         path = Path(name)

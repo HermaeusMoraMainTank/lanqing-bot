@@ -2,6 +2,7 @@
 from bot.plugin.base import BasePlugin, MessageContext
 from bot.plugin.result import PluginReply, PluginResult
 
+from bot.utils.group_track import get_group_tracker
 from .service import _CLOCK_IN, _CLOCK_OUT, get_service
 
 
@@ -21,7 +22,11 @@ class WorkClockPlugin(BasePlugin):
         return False
 
     def on_message(self, ctx: MessageContext) -> PluginReply:
-        text, img = get_service().handle(ctx.text.strip(), ctx.user_key, ctx.group_openid)
+        tracker = get_group_tracker()
+        nickname = tracker.display_name(ctx.group_openid, ctx.user_key)
+        text, img = get_service().handle(
+            ctx.text.strip(), ctx.user_key, ctx.group_openid, nickname=nickname,
+        )
         if img:
             return PluginResult(text=text, image_path=img)
         return text

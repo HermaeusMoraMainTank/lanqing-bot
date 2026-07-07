@@ -29,15 +29,19 @@ def _extract_mentions(content: str) -> list[str]:
 def from_group_message(client, message: GroupMessage) -> MessageContext:
     raw = message.content or ""
     text = normalize_command(raw)
-    openid = message.author.member_openid or "unknown"
+    author = message.author
+    openid = getattr(author, "member_openid", None) or "unknown"
+    role = getattr(author, "member_role", None)
     group_openid = message.group_openid or ""
     mentions = _extract_mentions(raw)
-    get_group_tracker().record(group_openid, openid)
+    tracker = get_group_tracker()
+    tracker.record(group_openid, openid, member_role=role)
+    display = tracker.display_name(group_openid, openid)
     return MessageContext(
         text=text,
         raw_text=raw,
         user_key=openid,
-        display_name="你",
+        display_name=display,
         scene="group",
         client=client,
         message=message,

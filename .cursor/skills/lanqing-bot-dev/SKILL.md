@@ -95,32 +95,53 @@ class MyPlugin(BasePlugin):
 
 | 字段 | 填写说明 |
 |------|---------|
-| ID | 序号 |
-| 指令名 | 不带 `/` |
+| ID | 序号（全机器人共 9 条，上限 24） |
+| 指令名 | 不带 `/`，每插件只登记一条主指令 |
 | 指令介绍 | ≤15 字 |
 | 权限菜单 | 所有人 |
 | 使用场景 | 勾选 QQ群 等 |
-| 是否传参 | 否（无参数指令） |
+| 是否传参 | 仅「菲比搜索」填是 |
 
-**文字指令 vs 服务配置**：
+**官网指令 vs @ 触发**：
 
-- `@机器人 今日人品` → 只填 **指令配置**，服务配置跳过
-- 跳转小程序 → 才填 **服务配置**
+- `/今日小猪` → 官网 **指令配置**（快捷面板）
+- `@机器人 抽小猪` → **不必**配官网，插件 triggers 仍生效
+- basic（帮助/ping）→ **不上架**
 
-## 现有插件
+## 现有插件（官网各登记 1 条，共 9 条）
 
-| 插件 | 触发词 | platform.yaml |
-|------|--------|----------------|
-| basic | 帮助 / ping / 你好 | `plugins/basic/platform.yaml` |
-| jrrp | 今日人品 / jrrp | `plugins/jrrp/platform.yaml` |
-| tarot | 占卜 | `plugins/tarot/platform.yaml` |
-| rollpig | 今日小猪 / 抽小猪 / 小猪图鉴 | `plugins/rollpig/platform.yaml` |
-| roulette | 轮盘赌 / 午时已到 | `plugins/roulette/platform.yaml` |
-| waifu | 今日老婆 / 群老婆列表 | `plugins/waifu/platform.yaml` |
-| anime_waifu | 今日二次元老婆 | `plugins/anime_waifu/platform.yaml` |
-| phoebe | 菲比搜索（带参） | `plugins/phoebe/platform.yaml` |
-| fortune | 今日运势 / 运势 / 今日doro | `plugins/fortune/platform.yaml` |
-| workclock | 打卡 / 上班 / 下班 | `plugins/workclock/platform.yaml` |
+| 插件 | 官网指令 | @ 别名示例 |
+|------|----------|------------|
+| jrrp | 今日人品 | jrrp |
+| tarot | 占卜 | — |
+| rollpig | 今日小猪 | 抽小猪 / 小猪图鉴 |
+| roulette | 轮盘赌 | 午时已到 |
+| waifu | 今日老婆 | 群老婆列表 |
+| anime_waifu | 今日二次元老婆 | 今日二次元 |
+| phoebe | 菲比搜索（传参） | — |
+| fortune | 今日运势 | 运势 / 今日doro |
+| workclock | 打卡 | 上班 / 下班 / 群上班列表 |
+| basic | **不上架** | 帮助 / ping / 你好 |
+
+## 用户头像（隐藏 API，未公开文档）
+
+```
+https://thirdqq.qlogo.cn/qqapp/{appid}/{openid}/0
+```
+
+- `appid`：`config.yaml` 机器人 AppID
+- `openid`：群聊 `member_openid` / 单聊 `user_openid`
+- **仅用户头像**，无法获取群头像
+
+工具模块：`bot/utils/avatar.py`（`load_avatar` / `download_avatar`）  
+详细说明：`docs/QQ头像API.md`  
+缓存：`data/avatar_cache/`（gitignore）
+
+## 用户昵称（官方无 API）
+
+QQ **群聊**消息不含昵称，无查询成员资料接口。详见 `docs/QQ群用户信息限制.md`。
+
+替代：`@机器人 设置昵称 xxx` 或 `config.yaml` → `nickname_overrides`
 
 ## 官网配置文档
 
