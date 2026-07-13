@@ -22,6 +22,12 @@ class MessageContext:
     message: Any
     group_openid: str = ""
     mentioned_openids: list[str] = field(default_factory=list)
+    msg_id: str = ""
+    timestamp: str = ""
+    member_role: str = ""
+    event_id: str = ""
+    guild_id: str = ""
+    channel_id: str = ""
 
 
 class BasePlugin(ABC):

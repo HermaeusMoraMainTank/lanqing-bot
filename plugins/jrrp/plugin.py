@@ -2,6 +2,7 @@
 from bot.config import load_config
 from bot.plugin.base import BasePlugin, MessageContext
 from bot.plugin.result import PluginReply
+from bot.utils.async_util import run_sync
 from bot.utils.hash_util import current_day_str, daily_hash_value
 
 

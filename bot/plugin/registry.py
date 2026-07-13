@@ -1,17 +1,27 @@
 # -*- coding: utf-8 -*-
 import importlib.util
+import time
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
 import yaml
-from botpy import logging
 
+from bot.utils.event_log import ctx_log_fields, format_ctx_summary, format_reply_summary
+from bot.utils.logger import get_log
 from bot.plugin.base import BasePlugin, MessageContext
 from bot.plugin.result import PluginReply
 
-_log = logging.get_logger()
+_log = get_log("lanqing.plugin")
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent
 PLUGINS_DIR = ROOT_DIR / "plugins"
+
+
+@dataclass(frozen=True)
+class DispatchResult:
+    reply: PluginReply
+    plugin: str | None = None
+    elapsed_ms: float = 0.0
 
 
 class PluginRegistry:
@@ -66,12 +76,26 @@ class PluginRegistry:
         plugin.description = manifest.get("description", plugin.description)
         return plugin
 
-    async def dispatch(self, ctx: MessageContext) -> PluginReply:
+    async def dispatch(self, ctx: MessageContext) -> DispatchResult:
         for plugin in self._plugins:
-            if plugin.match(ctx.text):
-                _log.info("[插件:%s] 处理 %s", plugin.name, ctx.text)
-                return await plugin.on_message(ctx)
-        return None
+            if not plugin.match(ctx.text):
+                continue
+            plog = _log.bind(plugin=plugin.name, **ctx_log_fields(ctx))
+            plog.info("开始处理 | %s", format_ctx_summary(ctx))
+            started = time.perf_counter()
+            try:
+                reply = await plugin.on_message(ctx)
+            except Exception:
+                plog.exception("插件处理异常 | %s", format_ctx_summary(ctx))
+                raise
+            elapsed_ms = (time.perf_counter() - started) * 1000
+            plog.info(
+                "处理完成 elapsed=%.0fms | %s",
+                elapsed_ms,
+                format_reply_summary(reply, plugin=plugin.name),
+            )
+            return DispatchResult(reply=reply, plugin=plugin.name, elapsed_ms=elapsed_ms)
+        return DispatchResult(reply=None)
 
 
 _registry: Optional[PluginRegistry] = None

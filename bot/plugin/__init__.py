@@ -1,5 +1,5 @@
 from bot.plugin.base import BasePlugin, MessageContext
-from bot.plugin.registry import PluginRegistry, get_registry
+from bot.plugin.registry import PluginRegistry, DispatchResult, get_registry
 
 from bot.plugin.result import PluginReply, PluginResult
 

@@ -12,6 +12,8 @@ venv/
 plugins/**/data/temp/
 data/avatar_cache/
 data/nickname_map.json
+logs/
+botpy.log
 .idea/
 .vscode/
 *.swp
